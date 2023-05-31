@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="images/logo1.png" type="images">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    li{
+        list-style-type: none;
+    }
+
+    .container{
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+    }
+
+    .LineNav{
+        display: flex;
+        background-color: #9ACD32;
+        justify-content: space-around;
+        align-content: center;
+        width: 100%;
+    }
+
+    .LineNav p{
+        color: #fff;
+        font-weight: 900;
+        padding: 8px;
+        font-size: 15px;
+    }
+
+    .navBar{
+        position: relative;
+        display: flex;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 0 4px 4px rgba(0, 0,0,0.50);
+        justify-content: space-around;
+        align-items: center;
+        position: sticky;
+        flex-direction: row;
+        top: 0;
+        z-index: 999;
+    }
+
+    .navBar .container, .LineNav .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logoImg img{
+        width: 240px;
+        cursor: pointer;
+    }
+
+    .navBar .navmenu{
+        display: flex;
+        align-items: center;
+    }
+
+    .navitem{
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navmenu .navitem .navlink{
+        background-color: transparent;
+        color: #000000;
+        font-weight: 900;
+        padding: 1rem 2rem;
+    }
+
+    .navmenu .navitem .navlink::after{
+        content: "";
+        width: 50%;
+        height: 3px;
+        display: block;
+        background-color: #000;
+        transition: all .3s ease-in-out 0s;
+        visibility: hidden; 
+        transform: scaleX(0);
+        margin-top: 3px;
+    }
+
+    .navmenu .navitem .navlink:hover::after{
+        visibility: visible;
+        transform: scaleX(1);
+    }
+
+    .WelcomeSection{
+        background-image: url('/images/apparel-background-boutique-business-2662132.jpg');
+        height: 86vh;
+        background-size: cover;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: 100% 70%;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .overBackground{
+        position: absolute;
+        background-color: rgba(0, 0,0,0.40);
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+    }
+
+    .mainHome{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mainHome .titleHome{
+        color: #fff;
+    }
+
+    .mainHome .titleHome h1{
+        font-size: 40px;
+        max-width: 500px;
+        font-weight: 700;
+        margin-top: 2rem;
+    }
+
+    .mainHome .titleHome p{
+        font-family: 'Flavors', cursive;
+        font-size: 18px;
+    }
+
+    .mainHome .titleHome .buttonshop{
+        margin-top: 2rem;
+    }
+
+    .mainHome .titleHome .buttonshop a{
+        margin-top: 2rem;
+        background-color: rgba(0, 0,0,0.70);
+        padding: 16px 10px 16px 14px;
+        color: #fff;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: ease-in-out .4s;
+        box-shadow: 5px 5px 4px rgba(255, 255, 255,0.25);
+    }
+
+    .mainHome .titleHome .buttonshop a i{
+        background-color: #FFA500;
+        color: #fff;
+        padding: 10px 10px;
+        font-size: 15px;
+        border-radius: 50px;
+        font-weight: 900;
+        transition: ease-in-out .4s;
+        margin-left: 8px;
+    }
+
+    .mainHome .titleHome .buttonshop a:hover{
+    color: #FFA500;
+    margin-left: 1rem;
+    }
+
+    .mainHome .titleHome .buttonshop a:hover i{
+        margin-left: 1rem;
+    }
+
+    .mainHome .homeImg img{
+        width: 700px;
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+    }
+
+    .BackgroundHomeSection{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .BackgroundHomeSection .titleSection{
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(242, 240, 240);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        position: sticky;
+        top: 0;
+    }
+
+    .BackgroundHomeSection .content-Sections{
+        width: 100% ;
+    }
+
+    .BackgroundHomeSection .content-Sections .content-section{
+        width: 100%;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .BackgroundHomeSection .content-section:nth-child(1){
+        background-image: url("/images/alyssa-strohmann-TS--uNw-JqE-unsplash.jpg");
+    }
+
+    .BackgroundHomeSection .content-section:nth-child(2){
+        background-image: url("/images/nick-de-partee-5DLBoEX99Cs-unsplash.jpg");
+    }
+
+    .BackgroundHomeSection .content-section:nth-child(3){
+        background-image: url("/images/angela-bailey-jlo7Bf4tUoY-unsplash.jpg");
+    }
+
+    .BackgroundHomeSection .content-section:nth-child(4){
+        background-image: url("/images/lucas-hoang-ojZ4wJNUM5w-unsplash.jpg");
+    }
+
+    .BackgroundHomeSection .titleSection img{
+        width: 350px;
+        height: 80px;
+    }
+
+    .BackgroundHomeSection .titleSection p{
+        margin-top: 1rem;
+        font-size: 40px;
+        max-width: 500px;
+        line-height: 55px;
+    }
+
+    .BackgroundHomeSection .buttonHome2{
+        margin-left: -17.8rem;
+        margin-top: 1.8rem;
+    }
+
+    .BackgroundHomeSection .buttonHome2 a{
+        background-color: #FFAE42;
+        color: #fff;
+        font-weight: 900;
+        padding: 13px 25px;
+        border-radius: 50px;
+        box-shadow: 6px 5px 4px rgba(0, 0,0,0.40); 
+        transition: ease-in-out 0.3s;
+        cursor: pointer;
+    }
+
+    .BackgroundHomeSection .buttonHome2 a:hover{
+        background-color: #800080;
+    }
+
+    .BackgroundHomeSection1{
+        background-color: #1C1E21;
+        height: 610px;
+        width: 100%;
+    }
+
+    .BackgroundHomeSection1 .titleSection{
+        padding-top: 48px;
+    }
+
+    .BackgroundHomeSection1 .titleSection p{
+        font-size: 40px;
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    .BackgroundHomeSection1 .titleSection p::after{
+        display: block;
+        content: "";
+        background-color: rgba(255, 255, 255, 0.75);
+        width: 15%;
+        height: 3px;
+        margin-top: 10px;
+    }
+
+    .BackgroundHomeSection1 .descriptHomeSec{
+        margin-top: 32px;
+    }
+
+    .BackgroundHomeSection1 .descriptHomeSec p{
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    .BackgroundHomeSection1 .TwoPictureSec{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .TwoPictureSec .imgsection .imgpicture{
+        position: relative;
+        background: url('/images/CLS01367.jpg-1025x1536.jpg');
+        width: 200px;
+        margin-top: 26px;
+        height: 300px;
+        border-radius: 10px;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        transition: all ease-in-out .3s;
+    }
+
+    .TwoPictureSec .imgsection .imgpicture2{
+        position: relative;
+        background: url('/images/10718317_fpx.jpg');
+        width: 200px;
+        margin-top: 26px;
+        height: 300px;
+        border-radius: 10px;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        transition: all ease-in-out .3s;
+    }
+
+    .TwoPictureSec .imgsection .overBackgroundPic{
+        position: absolute;
+        background-color: rgba(0, 0,0,0.55);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: 1;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        transform: scale(0);
+        transition: all ease-in-out .3s;
+    }
+
+    .TwoPictureSec .imgsection .imgpicture:hover .overBackgroundPic{
+        transform: scale(1);
+    }
+
+    .TwoPictureSec .imgsection .imgpicture:hover{
+        box-shadow: 0px 0px 10px #fff;
+    }
+
+    .TwoPictureSec .imgsection .imgpicture2:hover .overBackgroundPic{
+        transform: scale(1);
+    }
+
+    .TwoPictureSec .imgsection .imgpicture2:hover{
+        box-shadow: 0px 0px 10px #fff;
+    }
+
+    .BackgroundHomeSection1 .TwoPictureSec .imgsection .overBackgroundPic .overBackgroundLay{
+        position: absolute;
+        background-color: transparent;
+        width: 170px;
+        height: 270px;
+        top: 15px;
+        z-index: 1;
+        border-radius: 10px;
+        border: solid #fff 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .BackgroundHomeSection1 .TwoPictureSec .imgsection .overBackgroundPic .overBackgroundLay a{
+        color: #000;
+        background-color: #fff;
+        padding: 10px 15px;
+        font-weight: 700;
+        border-radius: 5px;
+        font-size: 13px;
+        transition:  ease-in-out .2s;
+    }
+
+    .BackgroundHomeSection1 .TwoPictureSec .imgsection .overBackgroundPic .overBackgroundLay a:hover{
+    box-shadow: 0 0 10px #fff;
+    }
+
+
+    .BackgroundHomeSection1 .TwoPictureSec .imgsection p{
+        margin-top: 24px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 24px;
+        position: relative;
+        margin-bottom: 38px;
+    }
+
+    .BackgroundHomeSection1 .TwoPictureSec .imgsection p::after{
+    content: "";
+    display: block;
+    height: 3px;
+    width: 15%;
+    background-color: #fff;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+    .PromoBackground{
+        background-color: #fff;
+        height: 115px;
+        width: 100%;
+    }
+
+    .ListOfPromo{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+    }
+
+    .ListOfPromo .cardListPromo{
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        border: solid 1px #000;
+        width: 230px;
+        justify-content: center;
+        padding: 6px 0px;
+        border-radius: 5px;
+    }
+
+    .ListOfPromo .cardListPromo img{
+        width: 50px;
+    }
+
+    footer{
+        background-color: #000000;
+        height: 400px;
+    }
+
+    footer .descriptionFooter{
+        color: #fff;
+    }
+
+    footer .descriptionFooter .listOfFooter{
+        color: #fff;
+    }
+
+    .footerF{
+        display: flex;
+        justify-content: space-around;
+        padding-top: 52px;
+    }
+
+    .footerF .descriptionFooter img{
+        width: 310px;
+        margin-bottom: 10px;
+    }
+
+    .footerF .descriptionFooter p{
+        width: 300px;
+        text-align: justify;
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .footerF .descriptionFooter .listOfFooter{
+        display: flex;
+        margin-top: 22px;
+        gap: 14px;
+    }
+
+    .footerF .descriptionFooter .listOfFooter li a{
+        border: solid 1px #fff;
+        padding: 8px 8px;
+        color: #fff;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: ease-in-out .4s;
+    }
+
+    .footerF .descriptionFooter .listOfFooter li a:hover{
+        background-color: #fff;
+        color: #000000;
+    }
+
+    .contactInfoFooter{
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .contactInfoFooter p{
+        color: #fff;
+    }
+
+    .contactInfoFooter p:nth-child(1){
+        position: relative;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .contactInfoFooter p:nth-child(1)::after{
+        display: block;
+        content: "";
+        height: 3px;
+        width: 80px;
+        background-color: #fff;
+        position: absolute;
+        top: 150%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .contactInfoFooter p:nth-child(2){
+        width: 400px;
+        padding-top: 20px;
+        text-align: justify;
+        line-height: 30px;
+    }
+
+    .contactInfo{
+        margin-left: 2.5rem;
+    }
+
+    .contactInfo .locfooter{
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contactInfo .locfooter::after{
+        display: block;
+        content: "";
+        background-color: #fff;
+    }
+
+    .contactInfo .locfooter img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .contactInfo .phoneFooter{
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contactInfo .phoneFooter img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .lineFooter{
+        margin-top: 8px;
+        content: "";
+        background-color: rgba(255, 255, 255, 0.50);
+        height: 3px;
+        width: 80%;
+        display: block;
+        border-radius: 50%;
+    }
+
+    .copyRightFooter{
+        width: 100%;
+        height: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.75);
+        background-color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .copyRightFooter p{
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 13px;
+    }
+    </style>
+</head>
+<body>
+    <div class="LineNav">
+      <div class="container">
+        <p>mariaRina@gmail.com</p>
+        <p>50% OFF</p>
+        <p>Contact: 09487321948</p>
+      </div>
+    </div>
+    <nav class="navBar">
+       <div class="container">
+            <a href="#" class="logoImg"><img src="images/logo.png" alt="logo"></a>
+            <ul class="navmenu">
+                <li class="navitem"><a href="index.html" class="navlink">Home</a></li>
+                <li class="navitem"><a href="about.html" class="navlink">About</a></li>
+                <li class="navitem"><a href="products.html" class="navlink">Products</a></li>
+            </ul>
+       </div>
+    </nav>
+    <section class="WelcomeSection">
+        <div class="overBackground"></div>
+        <div class="container">
+            <div class="mainHome">
+                <div class="titleHome">
+                    <p>SPRING/SUMMER COLLECTION 2023</p>
+                    <h1>GET UP TO 50% OFF NEW ARRIVALS</h1>
+                    <div class="buttonshop">
+                        <a href="#productshop">START SHOPPING <i class='fas fa-chevron-circle-right'></i></a>
+                    </div>
+                </div>
+                <div class="homeImg">
+                    <img src="images/purepng.com-women-shoppingwomenpeoplepersonsfemaleshopping-11215250867525vehx.png" alt="picture">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="BackgroundHomeSection">
+        <div class="titleSection">
+            <img src="images/logo.png" alt="logo">
+            <p>GET UP TO 50% OFF FOR THE PRODUCTS</p>
+            <div class="buttonHome2">
+                <a href="products.html">START SHOPPING</a>
+            </div>
+        </div>
+        <div class="content-Sections">
+            <div class="content-section"></div>
+            <div class="content-section"></div>
+            <div class="content-section"></div>
+            <div class="content-section"></div>
+        </div>
+    </section>
+    <section id="productshop" class="BackgroundHomeSection1">
+        <div class="container">
+           <div class="titleSection">
+                <p>ONLY THE BEST</p>
+           </div>
+           <div class="descriptHomeSec">
+                <p>Popular categories that people are shopping for right now</p>
+           </div>
+           <div class="TwoPictureSec">
+            <div class="imgsection">
+                <p>WOMEN</p>
+                <div class="imgpicture">
+                    <div class="overBackgroundPic">
+                        <div class="overBackgroundLay">
+                            <a href="products.html" class="gtoProd">GO TO SHOP</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="imgsection">
+                <p>MEN</p>
+                <div class="imgpicture2">
+                    <div class="overBackgroundPic">
+                        <div class="overBackgroundLay">
+                            <a href="products.html" class="gtoProd">GO TO SHOP</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+        </div>
+    </section>
+    <section class="PromoBackground">
+        <div class="container">
+            <div class="ListOfPromo">
+                <div class="cardListPromo">
+                    <img src="PromoCard/img_566690.png" alt="Logo">
+                    <p>FREE SHIPPING</p>
+                </div>
+                <div class="cardListPromo">
+                    <img src="PromoCard/img_460876.png" alt="Logo">
+                    <p>FREE RETURNS</p>
+                </div>
+                <div class="cardListPromo">
+                    <img src="PromoCard/img_320417.png" alt="Logo">
+                    <p>DISCOUNTS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footerF">
+                <div class="descriptionFooter">
+                    <img src="images/fsdfsdf.png" alt="logo">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="listOfFooter">
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
+                    </div>
+                </div>
+                <div class="contactInfoFooter">
+                    <p>CONTACT INFO</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="contactInfo">
+                        <div class="locfooter">
+                            <img src="images/location-vector-icon-removebg-preview.png" alt="">
+                            <p>San Martin De Porres, Cubao Quezon city</p>
+                        </div>
+                        <div class="lineFooter"></div>
+                        <div class="phoneFooter">
+                            <img src="images/223-2239246_phone-svg-png-icon-free-download-white-phone.png" alt="">
+                            <p>095438212341 / 095438212342</p>
+                        </div>
+                        <div class="lineFooter"></div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyRightFooter">
+        <p>Copyright @ 2023 CLOTHING. All rights reserved.</p>
+    </div>
+</body>
+</html>

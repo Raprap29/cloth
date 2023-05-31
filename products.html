@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing - Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="images/logo1.png" type="images">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      a{
+        text-decoration: none;
+      }
+
+      li{
+        list-style-type: none;
+      }
+
+      .container{
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+      }
+
+
+      .LineNav{
+        display: flex;
+        background-color: #9ACD32;
+        justify-content: space-around;
+        align-content: center;
+        width: 100%;
+      }
+
+      .LineNav p{
+        color: #fff;
+        font-weight: 900;
+        padding: 8px;
+        font-size: 15px;
+      }
+
+      .navBar{
+        position: relative;
+        display: flex;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 0 4px 4px rgba(0, 0,0,0.50);
+        justify-content: space-around;
+        align-items: center;
+        position: sticky;
+        flex-direction: row;
+        top: 0;
+        z-index: 999;
+      }
+
+      .navBar .container, .LineNav .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logoImg img{
+        width: 240px;
+        cursor: pointer;
+      }
+
+      .navBar .navmenu{
+        display: flex;
+        align-items: center;
+      }
+
+      .navitem{
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .navmenu .navitem .navlink{
+        background-color: transparent;
+        color: #000000;
+        font-weight: 900;
+        padding: 1rem 2rem;
+      }
+
+      .navmenu .navitem .navlink:hover::after{
+        visibility: visible;
+        transform: scaleX(1);
+      }
+
+      .navmenu .navitem .navlink::after{
+        content: "";
+        width: 50%;
+        height: 3px;
+        display: block;
+        background-color: #000;
+        transition: all .3s ease-in-out 0s;
+        visibility: hidden; 
+        transform: scaleX(0);
+        margin-top: 3px;
+      }
+
+      .productSection{
+        background-image: url('/images/fashion-clothing-background-hd.jpg');
+        width: 100%;
+        height: 85.7vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        align-items: center;
+      }
+
+      .sectionTitleProduct{
+        width: 500px;
+        text-align: center;
+      }
+
+      .sectionTitleProduct h1{
+        font-size: 60px;
+        font-family: 'Lemon', cursive;
+        font-weight: 900;
+      }
+
+      .sectionTitleProduct .editp{
+        display: flex;
+        justify-content: center;
+      }
+
+      .sectionTitleProduct p{
+        font-size: 16px;
+        width: 300px;
+      }
+
+      .sectionTitleProduct .buttonProduct{
+        margin-top: 36px;
+      }
+
+      .sectionTitleProduct .buttonProduct a{
+        background-color: #000;
+        color: #fff;
+        padding: 13px 22px;
+        border-radius: 10px;
+        font-weight: 700;
+        box-shadow: 4px 4px 4px rgba(0, 0,0,0.50);
+        transition: ease-in-out .3s;
+      }
+
+      .sectionTitleProduct .buttonProduct a:hover{
+        background-color: purple;
+      }
+
+      .PromoBackground{
+        background-color: #fff;
+        width: 100%;
+        height: 220px;
+      }
+
+      .PromoBackground h1{
+        text-align: center;
+        padding-top: 28px;
+        font-size: 18px;
+        font-family: 'IM Fell French Canon SC', serif;
+      }
+
+      .PromoBackground .ListOfPromo{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+      }
+
+      .PromoBackground .ListOfPromo .cardListPromo{
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        border: solid 1px #000;
+        width: 230px;
+        justify-content: center;
+        padding: 6px 0px;
+        border-radius: 5px;
+      }
+
+      .PromoBackground .ListOfPromo .cardListPromo img{
+        width: 50px;
+      }
+
+      .horizontalContainer{
+        display: flex;
+        justify-content: center;
+      }
+
+      .horizontalContainer .lineHorizontal{
+        margin-top: 30px;
+        height:20px;
+        background: repeating-linear-gradient(90deg,rgba(0,0,0,0.50) 0 3px ,#0000 0 7px) center;
+        background-size:100% 2px;
+        background-repeat:no-repeat;
+        width: 700px;
+      }
+
+      .ProductFeaturedSection{
+        padding-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 920px;
+        width: 100%;
+        position: relative;
+      }
+
+      .ProductFeaturedSection h3{
+        font-family: 'IM Fell French Canon SC', serif;
+        font-size: 30px;
+      }
+
+      .cardGrid{
+        display: grid;
+        justify-content: center;
+      }
+
+      .ProductFeaturedSection .titleProductSection .TitleProduct{
+        position: relative;
+      }
+
+      .ProductFeaturedSection .titleProductSection{
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .ProductFeaturedSection .titleProductSection .productLine{
+        content: "";
+        background-color: rgba(0,0,0,0.50);
+        width: 50%;
+        height: 3px;
+        position: absolute;
+        top: 42px;
+        left: 60px;
+      }
+
+      .productFeaturedCard{
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        gap: 2rem;
+        width: 860px;
+      }
+
+      .productFeaturedCard .cardFeatured{
+        background-color: #fff;
+        border: #c6c6c6 1px solid;
+        border-radius: 3px;
+        height: 100%;
+      }
+
+      .productFeaturedCard .cardFeatured .imgProduct img{
+        width: 150px;
+        border-radius: 3px;
+        padding: 16px;
+      }
+
+      .productFeaturedCard .cardFeatured .imgProduct{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .productFeaturedCard .cardFeatured .overCard{
+        position: absolute;
+        background-color: rgba(0, 0,0,0.35);
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        right: 100%;
+        transition: ease-in-out .3s;
+      }
+
+      .productFeaturedCard .cardFeatured:hover .overCard{
+        right: 0%;
+      }
+
+      .productFeaturedCard .cardFeatured .overCard .buttonBuyProduct{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+
+      .productFeaturedCard .cardFeatured .overCard .buttonBuyProduct a{ 
+        color: #000;
+        font-weight: 700;
+        background-color: #fff;
+        padding: 10px 22px;
+        border-radius: 10px;
+      }
+
+      .productFeaturedCard .cardFeatured .overCard .buttonBuyProduct a{ 
+        color: #000;
+        font-weight: 700;
+        background-color: #fff;
+        padding: 10px 22px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 4px rgba(0, 0,0,0.50);
+        transition: ease-in-out .3s;
+      }
+
+      .productFeaturedCard .cardFeatured .overCard .buttonBuyProduct a:hover{ 
+        box-shadow: 5px 5px 4px rgba(255, 255,255,0.50);
+      }
+
+      .productFeaturedCard .cardFeatured p{
+        display: grid;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 18px;
+      }
+
+      .productFeaturedCard .cardFeatured .BoxPriceContainer{
+        display: grid;
+        justify-content: center;
+        padding-bottom: 16px;
+        position: relative;
+      }
+
+      .productFeaturedCard .cardFeatured .BoxPriceContainer .BoxPrice{
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 18px;
+        color: #fff;
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        padding: 10px 30px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 4px rgba(0, 0,0,0.50);
+      }
+
+      .lineProductSolid{
+        content: "";
+        height: 2px;
+        width: 100%;
+        background-color: #c6c6c6;
+      }
+
+      .selector{
+        width: 200px;
+        position: absolute;
+        z-index: 99;
+        right: 0px;
+      }
+
+      .selector .selectField{
+        display: flex;
+        width: 100%;
+        padding: 15px 20px;
+        background-color: #000000;
+        color: #fff;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+      }
+
+      .selector .selectField p{
+        font-weight: 700;
+      }
+
+      .selector .selectField img{
+        width: 20px;
+      }
+
+      .selector #list{
+        width: 100%;
+        background-color: #000;
+        color: #fff;
+        border-radius: 6px;
+        overflow: hidden;
+        transition: ease-in-out .3s;
+      }
+
+      .options{
+        width: 100%;
+        padding: 15px 0px 15px 70px;
+        padding: 15px;
+        list-style: none;
+        cursor: pointer;
+        font-weight: 700;
+        position: relative;
+      }
+
+      .options:hover{
+        background-color: rgba(255, 255,255,0.50);
+        color: #000;
+      }
+
+      .selector .hide{
+        opacity: 0;
+      }
+
+      #arrowIcon{
+        transition: ease-in-out .3s;
+      }
+
+      .rotate{
+        transform: rotate(180deg);
+        transition: ease-in-out .3s;
+      }
+
+      .cardFeatured[data-type="women"].hidden{
+        display: none;
+      } 
+
+      .cardFeatured[data-type="men"].hidden{
+        display: none;
+      }
+
+      footer{
+        background-color: #000000;
+        height: 400px;
+      }
+
+      footer .descriptionFooter{
+        color: #fff;
+      }
+
+      footer .descriptionFooter .listOfFooter{
+        color: #fff;
+      }
+
+      .footerF{
+        display: flex;
+        justify-content: space-around;
+        padding-top: 52px;
+      }
+
+      .footerF .descriptionFooter img{
+        width: 310px;
+        margin-bottom: 10px;
+      }
+
+      .footerF .descriptionFooter p{
+        width: 300px;
+        text-align: justify;
+        font-size: 16px;
+        line-height: 30px;
+      }
+
+      .footerF .descriptionFooter .listOfFooter{
+        display: flex;
+        margin-top: 22px;
+        gap: 14px;
+      }
+
+      .footerF .descriptionFooter .listOfFooter li a{
+        border: solid 1px #fff;
+        padding: 8px 8px;
+        color: #fff;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: ease-in-out .4s;
+      }
+
+      .footerF .descriptionFooter .listOfFooter li a:hover{
+      background-color: #fff;
+      color: #000000;
+      }
+
+      .contactInfoFooter{
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+      }
+
+      .contactInfoFooter p{
+        color: #fff;
+      }
+
+      .contactInfoFooter p:nth-child(1){
+        position: relative;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .contactInfoFooter p:nth-child(1)::after{
+        display: block;
+        content: "";
+        height: 3px;
+        width: 80px;
+        background-color: #fff;
+        position: absolute;
+        top: 150%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .contactInfoFooter p:nth-child(2){
+        width: 400px;
+        padding-top: 20px;
+        text-align: justify;
+        line-height: 30px;
+      }
+
+      .contactInfo{
+        margin-left: 2.5rem;
+      }
+
+      .contactInfo .locfooter{
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contactInfo .locfooter::after{
+        display: block;
+        content: "";
+        background-color: #fff;
+      }
+
+      .contactInfo .locfooter img{
+        width: 40px;
+        height: 40px;
+      }
+
+      .contactInfo .phoneFooter{
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .contactInfo .phoneFooter img{
+        width: 40px;
+        height: 40px;
+      }
+
+      .lineFooter{
+        margin-top: 8px;
+        content: "";
+        background-color: rgba(255, 255, 255, 0.50);
+        height: 3px;
+        width: 80%;
+        display: block;
+        border-radius: 50%;
+      }
+
+      .copyRightFooter{
+        width: 100%;
+        height: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.75);
+        background-color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .copyRightFooter p{
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 13px;
+      }
+    </style>
+</head>
+<body>
+    <div class="LineNav">
+        <div class="container">
+          <p>mariaRina@gmail.com</p>
+          <p>50% OFF</p>
+          <p>Contact: 09487321948</p>
+        </div>
+      </div>
+      <nav class="navBar">
+         <div class="container">
+              <a href="#" class="logoImg"><img src="images/logo.png" alt="logo"></a>
+              <ul class="navmenu">
+                  <li class="navitem"><a href="index.html" class="navlink">Home</a></li>
+                  <li class="navitem"><a href="about.html" class="navlink">About</a></li>
+                  <li class="navitem"><a href="products.html" class="navlink">Products</a></li>
+              </ul>
+         </div>
+      </nav>
+      <section class="productSection">
+        <div class="container">
+          <div class="sectionTitleProduct">
+            <h1>CHECK OUR PRODUCTS</h1>
+            <div class="editp">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+            </div>
+            <div class="buttonProduct">
+                <a href="#">CHECK NOW</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="PromoBackground">
+        <div class="container">
+          <h1>CHECK OUT OUR UNIQUE APPROACH TO FASION</h1>
+            <div class="ListOfPromo">
+                <div class="cardListPromo">
+                    <img src="PromoCard/img_566690.png" alt="Logo">
+                    <p>FREE SHIPPING</p>
+                </div>
+                <div class="cardListPromo">
+                    <img src="PromoCard/img_460876.png" alt="Logo">
+                    <p>FREE RETURNS</p>
+                </div>
+                <div class="cardListPromo">
+                    <img src="PromoCard/img_320417.png" alt="Logo">
+                    <p>DISCOUNTS</p>
+                </div>
+            </div>
+            <div class="horizontalContainer">
+              <div class="lineHorizontal"></div>
+            </div>
+        </div>
+    </section>  
+    <section class="ProductFeaturedSection">
+        <div class="titleProductSection">
+          <div class="TitleProduct">
+            <h3>OUR PRODUCTS</h3>
+            <div class="productLine"></div>
+          </div>
+          <div class="selector">
+            <div class="selectField" id="selectField">
+              <p id="selectText">MEN</p>
+              <img class="rotate" src="images/arrow.png" alt="arrow" id="arrowIcon">
+            </div>
+            <ul id="list" class="hide">
+              <li class="options"><p>MEN</p></li>
+              <li class="options"><p>WOMEN</p></li>
+            </ul>
+          </div>
+          </div>
+        <div class="cardGrid">    
+          <div class="productFeaturedCard"></div>
+        </div>
+    </section>
+      <footer>
+        <div class="container">
+            <div class="footerF">
+                <div class="descriptionFooter">
+                    <img src="images/fsdfsdf.png" alt="logo">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="listOfFooter">
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
+                    </div>
+                </div>
+                <div class="contactInfoFooter">
+                    <p>CONTACT INFO</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="contactInfo">
+                        <div class="locfooter">
+                            <img src="images/location-vector-icon-removebg-preview.png" alt="">
+                            <p>San Martin De Porres, Cubao Quezon city</p>
+                        </div>
+                        <div class="lineFooter"></div>
+                        <div class="phoneFooter">
+                            <img src="images/223-2239246_phone-svg-png-icon-free-download-white-phone.png" alt="">
+                            <p>095438212341 / 095438212342</p>
+                        </div>
+                        <div class="lineFooter"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyRightFooter">
+        <p>Copyright @ 2023 CLOTHING. All rights reserved.</p>
+    </div>
+    <script>
+      const ProductClothes = [
+        {
+            img: "Product/c930ca14-a968-48eb-af5f-57a4a9bde0eb.png",
+            name: "Georgia Long Sleeve T-Shirt",
+            price: "PHP 5,111.98",
+            data: "men"
+        },
+        {
+            img: "Product/7f481fc7-36de-40dc-a3d0-490a78c9d029.png",
+            name: "Autumn Crest Quarter Zip Wool",
+            price: "PHP 14,914.94",
+            data: "men"
+        },
+        {
+            img: "Product/632fd6fb-f956-411f-a7db-c9bfbea05ea7.png",
+            name: "Quarter Zip Fleece Pullover",
+            price: "PHP 4,203.85",
+            data: "men"
+        },
+        {
+            img: "Product/fb2cda66-b48d-4aff-acc6-7fc630e862ba.png",
+            name: "Fear of God Essentials",
+            price: "PHP 3,608.45",
+            data: "men"
+        },
+        {
+            img: "Product/2d604d81-1f31-488c-a605-642287507437.png",
+            name: "Alton Ave Regular Fit",
+            price: "PHP 5,923.88",
+            data: "men"
+        },
+        {
+            img: "Product/3a51354d-149d-49e9-85c8-b9f22003017a.png",
+            name: "Jamestown Half-Zip Pullover",
+            price: "PHP 7,517.61",
+            data: "men"
+        },
+        {
+            img: "Product/090b01a3-be3b-4d57-8053-0171f2dc8618_1.png",
+            name: "Soft Lounge Long Sleeve Dress",
+            price: "PHP 5,292.40",
+            data: "women"
+        },
+        {
+            img: "Product/bb6a3d8e-a401-44fb-bbab-5185d44b9124.png",
+            name: "Tiffany One-Shoulder Midi Dress",
+            price: "PHP 8,900.85",
+            data: "women"
+        },
+        {
+            img: "Product/dc82bf1b-6ee7-4cb1-acf5-5a16e4cf46be.png",
+            name: "Peggy Cutout Puff Sleeve",
+            price: "PHP 2,141.02",
+            data: "women"
+        },
+        {
+            img: "Product/2a885202-c798-42ab-b89f-907d0bb62d7b.png",
+            name: "Denim Shorts in Slim Fir",
+            price: "PHP 4,089.58",
+            data: "women"
+        },
+        {
+            img: "Product/3b201b80-3861-4143-9c25-687982855517_1.png",
+            name: "Full Milano Sweater Dress",
+            price: "PHP 15,636.63",
+            data: "women"
+        },
+        {
+            img: "Product/3d690e66-24ae-4087-99f4-037199e8699d.png",
+            name: "Beilis Ruched One-Shoulder",
+            price: "PHP 47,992.44",
+            data: "women"
+        }
+      ]
+      let htmlString = "";
+      function insertProduct(){
+        const insetProduct = document.querySelector('.productFeaturedCard')
+          for(let i = 0; i < ProductClothes.length; i++){
+              htmlString += `<div class="cardFeatured" data-type="${ProductClothes[i].data}">
+              <div class="imgProduct">
+              <img src=${ProductClothes[i].img} alt="img">
+              <div class="overCard">
+                  <div class="buttonBuyProduct">
+                  <a href="#">BUY NOW</a>
+                  </div>
+              </div>
+              </div>
+              <div class="lineProductSolid"></div>
+              <p>${ProductClothes[i].name}</p>
+              <div class="BoxPriceContainer">
+              <div class="BoxPrice">
+                  ${ProductClothes[i].price}
+              </div>
+              </div>
+          </div>
+          `
+          }
+        insetProduct.innerHTML = htmlString;
+      }
+
+      function optionChange(){
+        let cardMen = document.querySelectorAll('[data-type="men"]')
+        let cardWomen = document.querySelectorAll('[data-type="women"]')
+        const selectText = document.getElementById('selectText');
+        const options = document.getElementsByClassName('options');
+        const select = document.querySelector('.selectField p');
+        const selectField = document.getElementById('selectField');
+        const list = document.getElementById('list');
+        const arrow = document.getElementById('arrowIcon')
+        selectField.onclick = function(){
+          list.classList.toggle("hide");
+          arrow.classList.toggle("rotate");
+        }
+
+        for(let option of options){
+            option.onclick = function(){
+              selectText.innerHTML = this.textContent;
+              list.classList.toggle("hide");
+              arrow.classList.toggle("rotate");
+              if(option.textContent === "MEN"){
+                  for(let i = 0; i < ProductClothes.length; i++){
+                    cardMen[i].classList.remove("hidden");
+                    cardWomen[i].classList.add("hidden");
+                  }
+              }
+              else if(option.textContent === "WOMEN"){
+                  for(let i = 0; i < ProductClothes.length; i++){
+                    cardMen[i].classList.add("hidden");
+                    cardWomen[i].classList.remove("hidden");
+                  }
+              }
+            }
+        }
+
+        if(select.textContent === "MEN"){
+            for(let i = 0; i < ProductClothes.length; i++){
+              cardMen[i].classList.remove("hidden");
+              cardWomen[i].classList.add("hidden");
+            }
+        }
+      }
+
+      insertProduct();
+      optionChange();
+    </script>
+</body>
+</html>
